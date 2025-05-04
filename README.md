@@ -352,10 +352,6 @@ public class Box {
         Box puzzle3 = new Box(5, new Random(1569));
         System.out.println(Arrays.toString(puzzle3.getBoxes()));
         System.out.println(puzzle3.start());
-
-        Box puzzle4 = new Box(5, new Random(1569));
-        System.out.println(Arrays.toString(puzzle3.getBoxes()));
-        System.out.println(puzzle4.start());
     }
 }
 ```
