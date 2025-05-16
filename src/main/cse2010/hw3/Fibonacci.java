@@ -48,10 +48,9 @@ public class Fibonacci {
      * @param prev    the previous Fibonacci number
      */
     private static int fibTailRec(int n, int current, int prev) {
-        /*
-         * Complete codes here ...
-         */
-        return fibTailRec(n-1, current, prev); // update this line
+        if (n == 0) return prev;
+        if (n == 1) return current;
+        return fibTailRec(n - 1, current + prev, current);
     }
 
     public static void main(String... args) {

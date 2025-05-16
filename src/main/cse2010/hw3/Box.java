@@ -93,11 +93,30 @@ public class Box {
      * @return true if the puzzle is solved, false otherwise
      */
     public boolean move(int current) {
-
-        /*
-         * Complete codes here ...
-         */
-
+        // Base case: reached the target index
+        if (current == targetIndex) {
+            return true;
+        }
+        int value = boxes[current];
+        // If value is 0 (should only be at the target), or out of bounds, return false
+        if (value == 0) {
+            return false;
+        }
+        boolean canMove = false;
+        // Try moving left if not visited and within bounds
+        int left = current - value;
+        if (left >= 0 && !left_visited[left]) {
+            left_visited[left] = true;
+            canMove = move(left);
+            if (canMove) return true;
+        }
+        // Try moving right if not visited and within bounds
+        int right = current + value;
+        if (right < boxes.length && !right_visited[right]) {
+            right_visited[right] = true;
+            canMove = move(right);
+            if (canMove) return true;
+        }
         return false;
     }
 

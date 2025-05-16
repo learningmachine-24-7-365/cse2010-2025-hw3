@@ -14,10 +14,22 @@ public class PigLatin {
      * @return the word in Pig Latin
      */
     public static String toPigLatin(String input) {
-        /*
-         * Complete codes here ...
-         */
-        return null; // modify this line if necessary
+        return toPigLatinTail(input, 0);
+    }
+
+    // Tail-recursive helper
+    private static String toPigLatinTail(String input, int idx) {
+        if (input == null || input.isEmpty()) return input;
+        if (idx >= input.length()) return input + "ay";
+        char c = Character.toLowerCase(input.charAt(idx));
+        if (vowels.contains(c)) {
+            if (idx == 0) {
+                return input + "ay";
+            } else {
+                return input.substring(idx) + input.substring(0, idx) + "ay";
+            }
+        }
+        return toPigLatinTail(input, idx + 1);
     }
 
     public static void main(String[] args) {
